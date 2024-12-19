@@ -30,6 +30,7 @@ function Form() {
             category: '',
             description: '',
         })
+         setError('')
     }
 
     return (
