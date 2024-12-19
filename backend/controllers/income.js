@@ -1,8 +1,5 @@
 const IncomeSchema= require("../models/IncomeModel")
 
-import asyncHandler from "express-async-handler";
-import TaskModel from "../../models/tasks/TaskModel.js";
-
 /*same CRUD but with envolving userid
 export const createTask = asyncHandler(async (req, res) => {
   try {
@@ -216,24 +213,7 @@ export const deleteAllTasks = asyncHandler(async (req, res) => {
 exports.deleteIncome= async(req,res)=>{
    const {id}=req.params
   // console.log(req.params)//important
- /* try {
-    const userId = req.user._id;
-    const { id } = req.params;
-
-    const task = await TaskModel.findById(id);
-
-    if (!task) {
-      res.status(404).json({ message: "Task not found!" });
-    }
-
-    // check if the user is the owner of the task
-    if (!task.user.equals(userId)) {
-      res.status(401).json({ message: "Not authorized!" });
-    }
-
-    await TaskModel.findByIdAndDelete(id);
-
-    return res.status(200).json({ message: "Task deleted successfully!" }); */
+ 
    IncomeSchema.findByIdAndDelete(id)
    .then((income) =>{
     res.status(200).json({message: 'Income Deleted'})
